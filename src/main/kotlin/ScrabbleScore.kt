@@ -29,8 +29,10 @@ object ScrabbleScore {
     )
 
     fun scoreWord(word: String): Int {
-        return word.sumOf { c ->
-            scoreLetter(c.uppercaseChar())
+        return word.map {c ->
+            c.uppercaseChar()
+        }.sumOf { c ->
+            scoreLetter(c)
         }
     }
 
