@@ -1,3 +1,5 @@
+import java.util.*
+
 object ScrabbleScore {
     private val scoreMap = mapOf(
         'A' to 1,
@@ -35,6 +37,19 @@ object ScrabbleScore {
             scoreLetter(c)
         }
     }
+
+    fun scoreWord2(input: String) =
+        input.uppercase(Locale.getDefault()).sumOf { c ->
+            val result: Int = when (c) {
+                in "DG" -> 2
+                in "BCMP" -> 3
+                in "FHVWY" -> 4
+                'K' -> 5
+                in "JX" -> 8
+                in "QZ" -> 10
+                else -> 1}
+            result
+        }
 
     private fun scoreLetter(c: Char): Int {
         return scoreMap[c] ?: 0
