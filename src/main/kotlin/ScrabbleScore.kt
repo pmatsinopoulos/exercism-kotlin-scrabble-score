@@ -29,7 +29,7 @@ object ScrabbleScore {
     )
 
     fun scoreWord(word: String): Int {
-        return word.asIterable().fold(0) { acc, c ->
+        return word.fold(0) { acc, c ->
             acc + scoreLetter(c.uppercaseChar())
         }
     }
